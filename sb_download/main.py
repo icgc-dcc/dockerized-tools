@@ -4,9 +4,12 @@
 import sevenbridges as sbg
 import os
 import argparse
+import sys
 
-os.environ['SB_API_ENDPOINT'] = 'https://cgc-api.sbgenomics.com/v2'
-#os.environ['SB_AUTH_TOKEN'] = ''
+if 'SB_API_ENDPOINT' not in os.environ:
+    os.environ['SB_API_ENDPOINT'] = 'https://cgc-api.sbgenomics.com/v2'
+if 'SB_AUTH_TOKEN' not in os.environ:
+    sys.exit('Need to set environment variable SB_AUTH_TOKEN with authorization token')
 
 api = sbg.Api()
 
@@ -20,7 +23,6 @@ def main():
 
     file = api.files.get(args.id)
     file.download(os.path.join(args.output_dir,file.name))
-    return 0
 
 if __name__ == "__main__":
     main()
