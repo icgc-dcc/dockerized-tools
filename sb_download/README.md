@@ -8,11 +8,11 @@ SB_API_ENDPOINT: The endpoint where to download the file from (https://cgc-api.s
 SB_AUTH_TOKEN: Your auth token to download the file
 
 ```bash
-docker build . -t sb_downloader
+docker build ../. -t sb_downloader
 docker run -v {output_directory}:/data \
     -e SB_API_ENDPOINT \
     -e SB_AUTH_TOKEN \
-    sb_downloader download \
+    sb_downloader python3 download \
     --id {file_id} \
     --output-dir /data
 ```
