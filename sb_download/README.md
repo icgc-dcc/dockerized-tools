@@ -12,7 +12,7 @@ docker build ../. -t sb_downloader
 docker run -v {output_directory}:/data \
     -e SB_API_ENDPOINT \
     -e SB_AUTH_TOKEN \
-    sb_downloader python3 download \
+    sb_downloader download \
     --id {file_id} \
     --output-dir /data
 ```

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import sevenbridges as sbg
@@ -21,8 +21,8 @@ def main():
     args = parser.parse_args()
     api = sbg.Api()
 
-    file = api.files.get(args.id)
-    file.download(os.path.join(args.output_dir,file.name))
+    f = api.files.get(args.id)
+    f.download(os.path.join(args.output_dir,f.name))
 
 if __name__ == "__main__":
     main()

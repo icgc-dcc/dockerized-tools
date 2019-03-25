@@ -12,7 +12,7 @@ docker build ../. -t sb_uploader
 docker run -v {file_path}:/data/{file_name}:ro \
     -e SB_API_ENDPOINT \
     -e SB_AUTH_TOKEN \
-    sb_uploader python3 upload \
+    sb_uploader upload \
     -f /data/{file_name} \
     -p {project_name}
 ```
